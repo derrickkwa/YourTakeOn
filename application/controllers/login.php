@@ -17,13 +17,7 @@ class login extends CI_Controller {
 				$this->session->set_userdata('lastname',$user->lastname);
 				$this->session->set_userdata('logged_in',True);
 				
-				
-				$data['userID'] = $this->session->userdata('userID');
-				$data['email'] = $this->session->userdata('email');
-				$data['firstname'] = $this->session->userdata('firstname');
-				$data['lastname'] = $this->session->userdata('lastname');
-		
-				$this->load->view('dashboard', $data);
+				$this->load->view('dashboard', $this->session->userdata);
 			} else {
 				$this->load->view('login_form');
 			}
