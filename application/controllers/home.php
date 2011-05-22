@@ -22,7 +22,7 @@ class Home extends CI_Controller {
 		if($this->session->userdata('userID')==false){
 			$this->load->view('homepage');
 		}else{
-			$this->load->view('dashboard',$this->session->userdata);
+			redirect('/user');
 		}
 	}
 }
