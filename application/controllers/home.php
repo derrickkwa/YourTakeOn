@@ -20,10 +20,16 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		if($this->session->userdata('userID')==false){
-			$this->load->view('homepage');
+			
+			$this->load->view('gen_nav');
 		}else{
-			redirect('/user');
+			$this->load->view('usernav');
+			
 		}
+		
+		$randomidea = $this->Ideas->getRandomIdea();
+		$this->load->view('homepage',$randomidea);
+		
 	}
 }
 

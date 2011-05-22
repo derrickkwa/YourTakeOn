@@ -7,6 +7,8 @@ class user extends CI_Controller {
 		}else{
 			$data = $this->session->userdata;
 			$data['ideas'] = $this->Ideas->getUserIdeas($this->session->userdata('userID'));
+			
+			$this->load->view('usernav');
 			$this->load->view('dashboard',$data);
 		}
 	}
