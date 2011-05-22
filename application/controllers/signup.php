@@ -9,10 +9,13 @@ class signup extends CI_Controller {
 		$firstname = $this->input->post('firstname');
 		$lastname = $this->input->post('lastname');
 		
+		//Checks if input passwords match
 		if($password != $this->input->post('confirmpassword')){
-			echo 'fail';
+			echo "Passwords do not match.";
 			$this->load->view('signup_form');
 		
+		
+		// Checks if input fields are empty. If not, adds them to database and session
 		} elseif($password != '' && $email != '' && $firstname != '' && $lastname != '') {
 				$password = md5($password);
 		
@@ -22,7 +25,7 @@ class signup extends CI_Controller {
 				$this->session->set_userdata('email',$user->email);
 				$this->session->set_userdata('firstname',$user->firstname);
 				$this->session->set_userdata('lastname',$user->lastname);
-				$this->session->set_userdata('logged_in',True);
+				$this->session->set_userdata('logged_in',True);   // Why? what will reset it to False?
 				
 				
 				$data['userID'] = $this->session->userdata('userID');
