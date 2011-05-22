@@ -17,7 +17,7 @@
 		'name'		=> 'confirmpassword',
 		'id'		=> 'confirmpassword',
 		'value'		=> '',
-		'maxlength'	=> '30'
+		'maxlength'	=> '255'
 	);
 	
 	$firstname = array(
@@ -42,7 +42,7 @@
     	'content' => 'Sign Up'
 	);
 	
-    echo form_open('signup/register');
+    echo form_open('signup');
 	echo form_fieldset('login info');
     echo form_label('email address:','email');
     echo form_input($emailinput);

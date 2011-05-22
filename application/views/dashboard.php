@@ -1,3 +1,5 @@
+Welcome <?php echo $firstname.' '.$lastname ?>
+
 <?php
-    echo 'dashboard';
+	echo anchor('logout', 'Log Out');
 ?>
