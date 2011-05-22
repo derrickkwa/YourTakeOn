@@ -13,8 +13,21 @@ class signup extends CI_Controller {
 		} else {
 			echo 'user added';
 		}*/
-		$this->Users->AddUser();
-		$this->load->view('dashboard');
+		
+		$user->email = $this->input->post('email');
+		$user->password = $this->input->post('password');
+		$user->firstname = $this->input->post('firstname');
+		$user->lastname = $this->input->post('lastname');
+		
+		if($user->password != $this->input->post('confirmpassword')){
+			echo 'fail';
+		} elseif($user->password != '' && $user->email != '' && $user->firstname != '' && $user->lastname != '') {
+				$user->password = md5($user->password);
+		
+				$this->Users->AddUser($user);
+				
+				$this->load->view('dashboard');
+		}
 	}
 }
 ?>
