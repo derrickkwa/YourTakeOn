@@ -4,7 +4,8 @@ if (!$con)
   {
   die('Could not connect: ' . mysql_error());
   }
-  
+
+mysql_select_db("YourTakeOn", $con);
  // add rating row to posts table
 $sql = "ALTER TABLE `posts` ADD `rating` FLOAT NOT NULL";
 
