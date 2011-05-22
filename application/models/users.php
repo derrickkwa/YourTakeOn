@@ -1,14 +1,22 @@
 <?php  
     class Users extends CI_Model {  
-      
+    	var $email = '';
+		var $password = '';
+		var $firstname = '';
+		var $lastname = '';
+		
   		function __construct()
     		{
         	parent::__construct();
     	}
       
-      	function addUser($user)
+      	function addUser($email, $password, $firstname, $lastname)
 		{
-			$this->db->insert('users', $user);
+			$this->email = $email;
+			$this->password = $password;
+			$this->firstname = $firstname;
+			$this->lastname = $lastname;
+			$this->db->insert('users', $this);
 		}
     }  
 ?>  
