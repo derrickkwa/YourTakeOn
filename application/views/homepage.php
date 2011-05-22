@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Welcome to YourTakeOn</h1>
-<?php echo anchor('signup', 'Signup');?> | 
-<?php echo anchor('login', 'Login'); ?>
+<?php echo anchor('user/signup', 'Signup');?> | 
+<?php echo anchor('user/login', 'Login'); ?>
 </body>
 </html>

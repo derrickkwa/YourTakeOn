@@ -42,7 +42,7 @@
     	'content' => 'Sign Up'
 	);
 	
-    echo form_open('signup');
+    echo form_open('/user/signup');
 	echo form_fieldset('login info');
     echo form_label('email address:','email');
     echo form_input($emailinput);

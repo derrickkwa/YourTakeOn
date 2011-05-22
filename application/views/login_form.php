@@ -22,7 +22,7 @@
 	);
 	
 	
-	echo form_open('login');
+	echo form_open('/user/login');
 	echo form_fieldset('login info');
     echo form_label('email address:','email');
     echo form_input($emailinput);
