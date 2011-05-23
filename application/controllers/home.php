@@ -19,7 +19,17 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('homepage');
+		if($this->session->userdata('userID')==false){
+			
+			$this->load->view('gen_nav');
+		}else{
+			$this->load->view('usernav');
+			
+		}
+		
+		$randomidea = $this->Ideas->getRandomIdea();
+		$this->load->view('homepage',$randomidea);
+		
 	}
 }
 
