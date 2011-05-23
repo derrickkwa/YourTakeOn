@@ -2,10 +2,10 @@
 class user extends CI_Controller {
 	function index()
 	{
-
-		if(($this->session->userdata('logged_in')==false) && ($this->input->cookie('cookie_user') == false)) {
-			$this->load->view('login_form');
-		}else{
+		
+		if($this->sessauth->checkLoggedIn()==false){
+			redirect('/user/login');
+		} else {
 			$data = $this->session->userdata;
 			$data['ideas'] = $this->Ideas->getUserIdeas($this->session->userdata('userID'));
 			
@@ -21,29 +21,22 @@ class user extends CI_Controller {
 
 		if($email != false && $password != false){
 			$user = $this->Users->getUser($email,$password);
-			echo "user: $user <br>";
 			
 			if($user!=false){
-				echo "there";
+
 				// Creates session
-				if ($this->input->post('keep_login') == 0){
-					$this->session->set_userdata('userID', $user->userID);
-					$this->session->set_userdata('email',$user->email);
-					$this->session->set_userdata('firstname',$user->firstname);
-					$this->session->set_userdata('lastname',$user->lastname);
-					$this->session->set_userdata('logged_in',True);
-				}
+				$this->sessauth->setSession($user);
 				
 				// Creates long-term cookie
-				elseif ($this->input->post('keep_login') == 1){
+				if ($this->input->post('keep_login') == 1){
 					
 					$cookie = array(
-   					'name'   => 'cookie_user',
-					'value'  => $user->userID,
+   					'name'   => 'yto_meep',
+					'value'  => $this->encrypt->encode($user->email.'12345'.$password),
 					'expire' => '865000',
-			//		'domain' => '.yourtakeon.com',
-			//		'path'   => '/',
-			//		'secure' => TRUE
+					//'domain' => '.yourtakeon.com',
+					//'path'   => '/',
+					//'secure' => FALSE
 					);
 
 					$this->input->set_cookie($cookie);
@@ -62,7 +55,7 @@ class user extends CI_Controller {
 	function logout()
 	{
 		$this->session->sess_destroy();
-		delete_cookie(cookie_user);
+		delete_cookie('yto_meep');
 		$this->load->view('logged_out');
 		redirect('/home');
 	}
@@ -87,13 +80,7 @@ class user extends CI_Controller {
 		
 				$user = $this->Users->AddUser($email, $password, $firstname, $lastname);
 				
-				//create session to keep user logged in, after signing up
-				$this->session->set_userdata('userID', $user->userID);
-				$this->session->set_userdata('email',$user->email);
-				$this->session->set_userdata('firstname',$user->firstname);
-				$this->session->set_userdata('lastname',$user->lastname);
-				$this->session->set_userdata('logged_in',True);
-				
+				$this->sessauth->setSession($user);
 				//$this->load->view('dashboard', $this->session->userdata);
 				redirect('/user');
 		

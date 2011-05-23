@@ -19,7 +19,7 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		if($this->session->userdata('userID')==false){
+		if($this->sessauth->checkLoggedIn()==false){
 			
 			$this->load->view('gen_nav');
 		}else{

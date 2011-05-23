@@ -1,4 +1,4 @@
-Welcome <?php echo $firstname.' '.$lastname ?>
+Welcome <?php echo $firstname.' '.$lastname; ?>
 
 <div>
 	Current Ideas
