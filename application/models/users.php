@@ -18,7 +18,7 @@
 			$this->firstname = $firstname;
 			$this->lastname = $lastname;
 			$this->db->insert('users', $this);
-			
+			$this->userID = mysql_insert_id();
 			return $this;
 		}
 		
