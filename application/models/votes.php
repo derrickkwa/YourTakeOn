@@ -9,9 +9,10 @@
         	parent::__construct();
     	}
       
-      	function rateIdea($rating, $postID){
+      	function rateIdea($rating, $postID, $userID){
       		$this->rating = $rating;
 			$this->postID = $postID;
+			$this->userID = $userID;
 			
 			$this->db->insert('votes', $this);
 			

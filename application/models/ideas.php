@@ -33,15 +33,55 @@
 			return $idea;
 		}
 		
+		// Gets a random idea from the database, subject to some conditions
 		function getRandomIdea()
 		{
-			$this->db->limit(1);
+			$userID = $this->session->userdata('userID');
+				
+			// Gets ideas which the user didn't submit him/herself
+		//	$this->db->limit(1);
+			$this->db->where('userID !=', $userID);
 			$this->db->order_by('postID', 'random');
 			$query = $this->db->get('posts');
+			$num_rows = $query->num_rows();
+		
+			if ($num_rows > 0){				
 			
-			$random_row = $query->first_row();
-			return $random_row;
+				$i = 0;
+				$random_row = $query->row($i);
+				
+				//Checks through all those that fit criteria for those not voted for before.
+				while (($this->hasVoted($random_row->postID) >= 1) && ($i <= ($num_rows))){
 			
+					$i++;
+					$random_row = $query->row($i);
+					}
+			
+				if ($i < $num_rows){
+				return $random_row;
+				}
+				
+			}
+			
+				
+		}
+		
+		//Checks if user has voted for said idea before (barring those not logged in)
+		function hasVoted($postID){
+			$userID = $this->session->userdata('userID');	
+
+			if ($userID != 0){
+				
+				$this->db->where('postID', $postID);
+				$this->db->where('userID', $userID);
+				$query = $this->db->get('votes');
+			
+				return $query->num_rows();
+			}	
+
+			else{
+				return 0;
+			}	
 		}
 		
 		function updateRating($postID){

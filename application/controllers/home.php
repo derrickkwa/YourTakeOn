@@ -28,8 +28,12 @@ class Home extends CI_Controller {
 		}
 		
 		$randomidea = $this->Ideas->getRandomIdea();
-		$this->load->view('homepage',$randomidea);
-		
+		if ($randomidea != NULL){
+			$this->load->view('homepage',$randomidea);
+		}
+		else{
+			echo "No more unrated ideas.";
+		}	
 	}
 }
 
