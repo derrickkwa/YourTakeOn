@@ -32,9 +32,8 @@
 		</div>
 		
 		<ul id="nav">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="top.html">Top Ideas</a></li>
-			<li><a href="search.html">Search</a></li>
+			<li><?php echo anchor('/home', 'Home'); ?></li>
+			<li><?php echo anchor('/ideas/top','Top Ideas'); ?></li>
 		</ul>
 		
 		
