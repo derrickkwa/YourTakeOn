@@ -44,6 +44,7 @@ $sql = "CREATE TABLE `YourTakeOn`.`posts` (
 `posttitle` VARCHAR( 60 ) NOT NULL ,
 `postblurb` VARCHAR( 255 ) NOT NULL ,
 `rating` FLOAT NOT NULL ,
+`totalvotes` FLOAT NOT NULL ,
 `last_modified` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 )";
 
@@ -62,6 +63,7 @@ else
 $sql = "CREATE TABLE `YourTakeOn`.`votes` (
 `voteID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `postID` INT NOT NULL ,
+`userID` INT NOT NULL ,
 `rating` INT NOT NULL ,
 `date_voted` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 )";

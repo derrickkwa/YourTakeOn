@@ -25,6 +25,8 @@
 	echo '</div>';
 ?>
 <input type="hidden" id="vid_url" name="vid_url" />
+<div>
+	Record short pitch (max 1 minute):
 <script type="text/javascript" src="http://localhost/yourtakeon/public/videorecorder/js/swfobject.js"></script>    
                  <script type="text/javascript">
 
@@ -36,7 +38,7 @@
    
                  var params = { allowScriptAccess: "always", allowFullScreen: "true", flashvars:""};
                  var atts = { id: "recorder" };
-                 swfobject.embedSWF("http://localhost/yourtakeon/public/videorecorder/recorder.swf", "recorder", "320", "295", "8", null, null, params, atts);
+                 swfobject.embedSWF("http://localhost/yourtakeon/public/videorecorder/recorder.swf", "recorder", "400", "350", "8", null, null, params, atts);
 
                  function onRecordPublished(obj)
                  {
@@ -52,11 +54,10 @@
      <div id="recorder">
       You need Flash player 8+ and JavaScript enabled to view this video.
      </div>
-     <div>
+     </div>
 <?php 
      //echo form_button($postidea);
 	echo form_close();
 ?>
-</div>
 </div>
 </div>

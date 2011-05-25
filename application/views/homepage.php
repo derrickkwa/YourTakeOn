@@ -24,25 +24,30 @@
 	
 				<!-- this will install flowplayer inside previous A- tag. -->
 				<script>
-					flowplayer("player", "<?php echo base_url(); ?>/public/flowplayer/flowplayer-3.2.7.swf", {
+					flowplayer("player", {
+					
+						src: "<?php echo base_url(); ?>/public/flowplayer/flowplayer-3.2.7.swf", 
+						
+						wmode: "transparent"
+					},{
 
 					// change the default controlbar to modern
 						plugins: {
 							controls: {
 							url: '<?php echo base_url(); ?>/public/flowplayer/flowplayer.controls-tube-3.2.5.swf',
 			
-							buttonColor: 'rgba(0, 0, 0, 0.9)',
+							/*buttonColor: 'rgba(0, 0, 0, 0.9)',
 							buttonOverColor: '#000000',
 							backgroundColor: '#D7D7D7',
 							backgroundGradient: 'medium',
-							sliderColor: '#FFFFFF',
+							sliderColor: '#FFFFFF',*/
 			
 							sliderBorder: '1px solid #808080',
 							volumeSliderColor: '#FFFFFF',
 							volumeBorder: '1px solid #808080',
 			
-							timeColor: '#000000',
-							durationColor: '#535353'
+						//	timeColor: '#ff00000',
+						//	durationColor: '#0000ff'
 							}
 						},
 						clip: {
@@ -66,12 +71,12 @@
 	</div>
 	<div class="secondary">
 		<?php if($prev_idea!=false){ ?>
-			<div style="margin-top: 8em; padding: 10px; background: #0088aa;">
+			<div style="margin-top: 13em; padding: 10px; background: #0088aa;">
 				You just rated:
 				<h2><?php echo $prev_idea->posttitle; ?></h2>
 				<p><?php echo $prev_idea->postblurb; ?></p>
 				Average Rating:
-				<h2><?php echo $prev_idea->rating; ?></h2>
+				<h2><?php echo round($prev_idea->rating,2); ?></h2>
 				based of <?php echo $prev_idea->totalvotes; ?> votes
 			</div>
 		<?php } ?>

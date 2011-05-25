@@ -23,7 +23,7 @@
 <div id="container">
 
 	<div id="header">
-		<div class="right" style="margin-top: 53px;">
+		<div class="right" style="margin-top: 53px; font-size:1.1em;">
 			<?php
 				if($this->sessauth->checkLoggedIn()==false){ 
 					$this->load->view('gen_nav.php');

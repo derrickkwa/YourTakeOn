@@ -221,7 +221,7 @@ please read http://easyframework.com/documentation.php
 			line-height:32px;
 			height:32px;
 			margin-right:2em;
-			font-size: 1.2em;
+			font-size: 1.3em;
 			}	
 		#nav a{}
 		
@@ -350,4 +350,9 @@ please read http://easyframework.com/documentation.php
 	background: #dddddd;
 	color: black;
 	cursor: pointer;
+}
+
+#ratings li:hover{
+	background: #555555;
+	color: #dddddd;
 }

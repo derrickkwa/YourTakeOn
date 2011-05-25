@@ -18,9 +18,9 @@
 
 <!--camera settings & not for playeer mode-->
 
-<width>320</width>
+<width>550</width>
 
-<height>240</height>
+<height>350</height>
 
 <fps>30</fps>
 
