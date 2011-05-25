@@ -100,7 +100,10 @@
 			$avgrating = $query->first_row();
 			
 			$this->db->where('postID',$postID);
-			$this->db->update('posts', array('rating'=>$avgrating->rating));
+			$this->db->from('votes');
+			$totalvotes = $this->db->count_all_results();
+			$this->db->where('postID',$postID);
+			$this->db->update('posts', array('rating'=>$avgrating->rating, 'totalvotes'=>$totalvotes));
 			return $avgrating;
 		}
     }  

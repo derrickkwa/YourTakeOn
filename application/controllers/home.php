@@ -19,13 +19,8 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		if($this->sessauth->checkLoggedIn()==false){
-			
-			$this->load->view('gen_nav');
-		}else{
-			$this->load->view('usernav');
-			
-		}
+		$this->load->view('header');
+		
 		
 		$randomidea = $this->Ideas->getRandomIdea();
 		if ($randomidea != NULL){
@@ -34,6 +29,9 @@ class Home extends CI_Controller {
 			$data->prev_idea = $previdea;
 			
 			$this->load->view('homepage',$data);
+			
+			//clear previdea from session;
+			$this->session->set_userdata('last_post',false);
 		}
 		else{
 			echo "No more unrated ideas.";
