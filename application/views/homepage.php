@@ -57,3 +57,11 @@
 	echo form_button($votebutton);
 	echo form_close();
 ?>
+<div id="previdea">
+Just voted on:
+<?php
+	if($prev_idea!=false){
+		echo $prev_idea->posttitle.'<br />'.$prev_idea->postblurb.'<br />'.$prev_idea->rating;
+	}
+?>
+</div>

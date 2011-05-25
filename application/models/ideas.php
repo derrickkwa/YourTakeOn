@@ -24,6 +24,14 @@
 			return $this;
 		}
 		
+		function getIdea($postID){
+			
+			$query = $this->db->get_where('posts', array('postID' => $postID));
+			$idea = $query->row();
+			return $idea;
+			
+		}
+		
 		function getUserIdeas($userID)
 		{
 			$query = $this->db->get_where('posts', array('userID' => $userID));
