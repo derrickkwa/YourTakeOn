@@ -1,7 +1,27 @@
 <div class="content">
-	<div class="main">
-		<div>
-			<ul id="ratings">
+	<div class="full">
+		<div class="cols cols3">
+			<?php
+			if($prev_idea!=false){
+			?>
+				<div class="col first" style="margin-top: 8em; padding: 10px; width: 20%; background: #0088aa;">
+				You just rated:
+				<h2><?php echo $prev_idea->posttitle; ?></h2>
+				<p><?php echo $prev_idea->postblurb; ?></p>
+				Average Rating:
+				<h2><?php echo $prev_idea->rating; ?></h2>
+				based of <?php echo $prev_idea->totalvotes; ?> votes
+				</div>
+			<?php
+			} else { //blank div if no previous votes?>
+				<div class="col first" style="margin-top: 8em; padding: 10px; width: 20%; ">
+					&nbsp;
+				</div>
+			<?php
+			}
+			?>
+			<div class="col" style="width: 60%;">
+				<ul id="ratings">
 					<li class="first">1</li>
 					<li>2</li>
 					<li>3</li>
@@ -12,9 +32,7 @@
 					<li>8</li>
 					<li>9</li>
 					<li>10</li>
-			</ul>
-		</div>
-		<div class="clear">
+				</ul>
 				<h1><?php echo $posttitle; ?></h1>
 				<p><?php echo $postblurb; ?></p>
 				<?php $url = 'http://yourtakeon.com/vids/'.$vid_url.'.flv'; ?>
@@ -58,22 +76,7 @@
 						});
 					});
 			</script>
-			<?php echo form_open('/vote', array('id'=>'ratingform', 'name'=>'ratingform')); ?>
-			<input type="hidden" id="rating" name="rating" />
-			<input type="hidden" id="postID" name="postID" value="<?php echo $postID; ?>" />
-			</form>
-		</div>
-	</div>
-	<div class="secondary">
-		<?php if($prev_idea!=false){ ?>
-			<div style="margin-top: 8em; padding: 10px; background: #0088aa;">
-				You just rated:
-				<h2><?php echo $prev_idea->posttitle; ?></h2>
-				<p><?php echo $prev_idea->postblurb; ?></p>
-				Average Rating:
-				<h2><?php echo $prev_idea->rating; ?></h2>
-				based of <?php echo $prev_idea->totalvotes; ?> votes
-			</div>
-		<?php } ?>
-	</div>
-</div>
+	<?php echo form_open('/vote', array('id'=>'ratingform', 'name'=>'ratingform')); ?>
+	<input type="hidden" id="rating" name="rating" />
+	<input type="hidden" id="postID" name="postID" value="<?php echo $postID; ?>" />
+	</form>

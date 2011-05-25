@@ -7,18 +7,23 @@
 	<meta name="description" content=""></meta>
 	<meta http-equiv="imagetoolbar" content="no" />
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" href="<?php echo base_url()."/public/css/easy.css"; ?>" media="screen" />
-	<link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/easyprint.css" media="print" />
+	<link rel="stylesheet" href="<?php echo base_url(); ?>public/css/easy.css" media="screen" />
+	<link rel="stylesheet" href="<?php echo base_url(); ?>public/css/easyprint.css" media="print" />
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url(); ?>/public/js/easy.js"></script>
-	<script type="text/javascript" src="<?php echo base_url(); ?>/public/js/main.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>public/js/easy.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>public/js/main.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>public/js/cufon.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>public/js/defton-stylus_400.font.js"></script>
+	<script type="text/javascript">
+		Cufon.replace('#header h1');
+	</script>
 </head>
 <body>
 	
 <div id="container">
 
 	<div id="header">
-		<div class="right" style="margin-top: 35px;">
+		<div class="right" style="margin-top: 53px;">
 			<?php
 				if($this->sessauth->checkLoggedIn()==false){ 
 					$this->load->view('gen_nav.php');
@@ -27,13 +32,15 @@
 				}
 			?>
 		</div>
-		<div id="logo">
 		<h1>YourTakeOn</h1>
-		</div>
-		
 		<ul id="nav">
 			<li><?php echo anchor('/home', 'Home'); ?></li>
 			<li><?php echo anchor('/ideas/top','Top Ideas'); ?></li>
+			<?php
+				if($this->sessauth->checkLoggedIn()!=false){
+					echo '<li>'.anchor('/idea/add', 'Post New Idea').'</li>';
+				}
+			?>
 		</ul>
 		
 		

@@ -221,6 +221,7 @@ please read http://easyframework.com/documentation.php
 			line-height:32px;
 			height:32px;
 			margin-right:2em;
+			font-size: 1.2em;
 			}	
 		#nav a{}
 		
@@ -245,9 +246,11 @@ please read http://easyframework.com/documentation.php
 /* header */
 
 	#header h1{
-		line-height:3em;
-		height:3em;
+		line-height:1em;
+		padding: 0.5em 0;
+		height:1.2em;
 		margin:0;
+		font-size: 4em;
 		}
 	#header h1 a{		
 		}		
