@@ -2,8 +2,8 @@
 
   $streamId = $_GET['id'].'.flv';
   //$streamId = 'sttemanihdhxcsfxs.flv';
-  $red5_dir = '/usr/share/red5/oflaDemo/streams/';  
-  $base_dir = '/usr/share/red5/oflaDemo/streams/yto_vids/';  
+  $red5_dir = '/usr/share/red5/webapps/oflaDemo/streams/';  
+  $base_dir = '/usr/share/red5/webapps/oflaDemo/streams/yto_vids/';  
   
   copy($red5_dir.$streamId ,  $base_dir.$streamId );
   

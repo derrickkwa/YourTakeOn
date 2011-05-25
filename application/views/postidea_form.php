@@ -27,7 +27,10 @@
 <input type="hidden" id="vid_url" name="vid_url" />
 <div>
 	Record short pitch (max 1 minute):
-<script type="text/javascript" src="http://localhost/yourtakeon/public/videorecorder/js/swfobject.js"></script>    
+	
+	<script type="text/javascript" src="<?php echo base_url(); ?>public/js/xajax.js"></script><!--REMOVE WHEN MIGRATED TO PRODUCTION SERVER-->
+	
+<script type="text/javascript" src="<?php echo base_url(); ?>public/videorecorder/js/swfobject.js"></script>    
                  <script type="text/javascript">
 
                  function getFlashMovie(movieName)
@@ -38,12 +41,29 @@
    
                  var params = { allowScriptAccess: "always", allowFullScreen: "true", flashvars:""};
                  var atts = { id: "recorder" };
-                 swfobject.embedSWF("http://localhost/yourtakeon/public/videorecorder/recorder.swf", "recorder", "400", "350", "8", null, null, params, atts);
+                 swfobject.embedSWF("<?php echo base_url(); ?>public/videorecorder/recorder.swf", "recorder", "400", "350", "8", null, null, params, atts);
 
                  function onRecordPublished(obj)
                  {
 	                  $('#vid_url').val(obj.filename);
-	                  $('#postidea').submit();
+	                  //$.post('http://www.yourtakeon.com/gen_thumbnails.php',{vid_url: obj.filename});
+	                 ///////////////////////////////////////////////////
+	                 ////CHANGE TO STANDARD POST WHEN UPLOADED//////////
+	                 ///////////////////////////////////////////////////
+	                 $.post("<?php echo base_url(); ?>public/proxy.php?url=" + encodeURI('http://www.yourtakeon.com/gen_thumbnails.php'), {
+    						"vid_url": obj.filename
+ 
+						}, function (data) {
+ 
+    						console.log(data);
+    						if (data.error) {
+        						alert('Error: ' + data.error);
+    						} else {
+ 
+       							$(".crumbs_result").html('Result: <a href="' + data.short + '">Link</a>').slideDown();
+    						}
+						}, "json");
+	              	//$('#postidea').submit();
 	                 // alert(obj.duration);
                  }
 

@@ -14,7 +14,7 @@
 
 <maxduration>60</maxduration>
 
-<preview>http://localhost/webflvrec/images/test.jpg</preview> <!--(only for player)-->
+<preview>http://localhost/public/videorecorder/images/test.jpg</preview> <!--(only for player)-->
 
 <!--camera settings & not for playeer mode-->
 
@@ -36,8 +36,8 @@
 
 <!--server side files-->
 
-<imagecapture>http://localhost/yourtakeon/videorecorder/php/imagecapture.php</imagecapture> <!--(omit this for player)-->
+<!--<imagecapture>http://localhost/yourtakeon/public/videorecorder/php/imagecapture.php</imagecapture> <!--(omit this for player)-->
 
-<savestream>http://localhost/yourtakeon/videorecorder/php/save.php</savestream> <!--(omit this for player & broadcaster)-->
+<!--<savestream>http://localhost/yourtakeon/public/videorecorder/php/save.php</savestream> <!--(omit this for player & broadcaster)-->
 
 </config>

@@ -1,16 +1,17 @@
 <div class="content">
 <div class="main">
-Welcome <?php echo $firstname.' '.$lastname; ?>
-
 <div>
-	Current Ideas
-	
-	<ul>
-		<?php
-			foreach($ideas as $idea){
-				echo '<li>'.$idea->posttitle.' - '.$idea->postblurb . '(Average Rating: '.$idea->rating.')</li>';
-			}
-		?>
-	</ul>
+	<h2>Your Ideas</h2>
+	<?php
+		foreach($ideas as $idea){
+			?>
+			<div style="width: 300px; margin: 15px 0; float: left;">
+				<h4><?php echo $idea->posttitle; ?></h4>
+				<?php echo $idea->postblurb; ?><br />
+				<img src="http://yourtakeon.com/vids/thumbnails/<?php echo $idea->vid_url; ?>.jpg" style="width: 230px;" />
+				
+			</div>
+	<?php }
+	?>
 </div>
 </div>
