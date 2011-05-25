@@ -28,7 +28,7 @@
 			?>
 		</div>
 		<div id="logo">
-		<h1><a href="index.html">YourTakeOn</a></h1>
+		<h1>YourTakeOn</h1>
 		</div>
 		
 		<ul id="nav">
