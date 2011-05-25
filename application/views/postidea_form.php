@@ -1,3 +1,5 @@
+<div class="content">
+<div class="main">
 <?php
     $titleinput = array(
 		'name' 	=> 'title',
@@ -13,22 +15,14 @@
 		'maxlength'	=> '255'
 	);
 	
-	$postidea = array(
-    	'name' => 'post',
-    	'id' => 'post',
-    	'value' => 'postidea',
-    	'type' => 'submit',
-    	'content' => 'Post Idea'
-	);
-	
-	echo form_open('/idea/add');
-	echo form_fieldset('post new idea');
-    echo form_label('title:','title');
+	echo form_open('/idea/add', array('id'=>'postidea','name'=>'postidea'));
+	echo '<div>';
+    echo form_label('Title:','title');
     echo form_input($titleinput);
-	echo br();
-	echo form_label('description:','blurb');
+	echo '</div><div>';
+	echo form_label('Description:','blurb');
 	echo form_input($blurb);
-	echo form_fieldset_close();
+	echo '</div>';
 ?>
 <input type="hidden" id="vid_url" name="vid_url" />
 <script type="text/javascript" src="http://localhost/yourtakeon/public/videorecorder/js/swfobject.js"></script>    
@@ -46,7 +40,8 @@
 
                  function onRecordPublished(obj)
                  {
-	                  document.getElementById('vid_url').value=obj.filename;
+	                  $('#vid_url').val(obj.filename);
+	                  $('#postidea').submit();
 	                 // alert(obj.duration);
                  }
 
@@ -57,7 +52,11 @@
      <div id="recorder">
       You need Flash player 8+ and JavaScript enabled to view this video.
      </div>
+     <div>
 <?php 
-     echo form_button($postidea);
+     //echo form_button($postidea);
 	echo form_close();
 ?>
+</div>
+</div>
+</div>

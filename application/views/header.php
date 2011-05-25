@@ -18,13 +18,12 @@
 <div id="container">
 
 	<div id="header">
-		<div id="login" class="right" style="margin-top: 35px;">
+		<div class="right" style="margin-top: 35px;">
 			<?php
-				if($this->sessauth->checkLoggedIn()==false){
-					echo anchor('user/signup', 'Signup').' | '.anchor('user/login', 'Login');
+				if($this->sessauth->checkLoggedIn()==false){ 
+					$this->load->view('gen_nav.php');
 				} else {
-					
-					echo anchor('/user', 'Dashboard').' | '.anchor('/idea/add', 'Post New Idea').' | '.anchor('/user/logout', 'Logout');
+					$this->load->view('usernav.php');
 				}
 			?>
 		</div>

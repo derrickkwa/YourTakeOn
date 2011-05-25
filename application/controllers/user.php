@@ -6,10 +6,10 @@ class user extends CI_Controller {
 		if($this->sessauth->checkLoggedIn()==false){
 			redirect('/user/login');
 		} else {
+			$this->load->view('header');
 			$data = $this->session->userdata;
 			$data['ideas'] = $this->Ideas->getUserIdeas($this->session->userdata('userID'));
 			
-			$this->load->view('usernav');
 			$this->load->view('dashboard',$data);
 		}
 	}
@@ -62,7 +62,7 @@ class user extends CI_Controller {
 	
 	function signup()
 	{
-		
+		$this->load->view('header');
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		$firstname = $this->input->post('firstname');

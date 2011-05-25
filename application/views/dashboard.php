@@ -1,3 +1,5 @@
+<div class="content">
+<div class="main">
 Welcome <?php echo $firstname.' '.$lastname; ?>
 
 <div>
@@ -10,4 +12,5 @@ Welcome <?php echo $firstname.' '.$lastname; ?>
 			}
 		?>
 	</ul>
+</div>
 </div>

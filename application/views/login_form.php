@@ -33,18 +33,20 @@
 	
 	echo form_open('/user/login');
 	echo form_fieldset('login info');
-	
+	echo '<div>';
     echo form_label('email address:','email');
     echo form_input($emailinput);
-	echo br();
-	
+	echo '</div>';
+	echo '<div>';
 	echo form_label('password:','password');
 	echo form_password($password);
-	echo br();
-		
-	echo form_checkbox($keep_login);
-	echo form_label('Keep me logged in.', 'keep_login');
-	
+	echo '</div>';
+	?>
+	<div>
+	<input type="checkbox" id="keep_login" name="keep_login" value="1" checked="0" style="display: inline;">
+	<label for="keep_login" style="display: inline;">Keep me logged in</label>
+	</div>
+	<?php
 	echo form_fieldset_close();
 	
 	echo form_button($signup);

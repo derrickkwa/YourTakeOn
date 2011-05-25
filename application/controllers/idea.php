@@ -9,7 +9,7 @@ class idea extends CI_Controller {
 	function add()
 	{
 		if($this->sessauth->checkLoggedIn()==false){
-			redirect('/user/login');
+			redirect('/home');
 		} else {
 			$title = $this->input->post('title');
 			$blurb = $this->input->post('blurb');
@@ -20,6 +20,7 @@ class idea extends CI_Controller {
 				$idea = $this->Ideas->addIdea($title,$blurb, $userID, $vid_url);
 				redirect('/user');	
 			} else {
+				$this->load->view('header');
 				$this->load->view('postidea_form');
 			}
 		}

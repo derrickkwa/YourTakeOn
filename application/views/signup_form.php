@@ -1,3 +1,5 @@
+<div class="content">
+<div class="main">
 <?php
 	$emailinput = array(
 		'name' 	=> 'email',
@@ -44,24 +46,31 @@
 	
     echo form_open('/user/signup');
 	echo form_fieldset('login info');
+	echo '<div>';
     echo form_label('email address:','email');
     echo form_input($emailinput);
-	echo br();
+	echo '</div><div>';
 	echo form_label('password:','password');
 	echo form_password($password);
-	echo br();
+	echo '</div><div>';
 	echo form_label('confirm password:','confirmpassword');
 	echo form_password($confirmpassword);
+	echo '</div>';
 	echo form_fieldset_close();
 
 	echo form_fieldset('user info');
+	echo '<div>';
 	echo form_label('first name:', 'firstname');
 	echo form_input($firstname);
-	echo br();
+	echo '</div>';
+	echo '<div>';
 	echo form_label('last name:','lastname');
 	echo form_input($lastname);
+	echo '</div>';
 	echo form_fieldset_close();
 	
 	echo form_button($signup);
 	echo form_close();
 ?>
+</div>
+</div>
