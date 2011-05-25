@@ -18,6 +18,19 @@ else
   {
   echo "Error updating table: " . mysql_error();
   }
-  
+ 
+ // add rating row to posts table
+$sql = "ALTER TABLE `votes` ADD `userID` INT NOT NULL";
+
+// Execute query
+if (mysql_query($sql,$con))
+  {
+  echo "Tables votes updated";
+  }
+else
+  {
+  echo "Error updating table: " . mysql_error();
+  }
+ 
 mysql_close($con);
 ?> 
