@@ -14,9 +14,10 @@ class idea extends CI_Controller {
 			$title = $this->input->post('title');
 			$blurb = $this->input->post('blurb');
 			$userID = $this->session->userdata('userID');
+			$vid_url = $this->input->post('vid_url');
 		
 			if($title != '' && $blurb !='' && $userID !=false){
-				$idea = $this->Ideas->addIdea($title,$blurb, $userID);
+				$idea = $this->Ideas->addIdea($title,$blurb, $userID, $vid_url);
 				redirect('/user');	
 			} else {
 				$this->load->view('postidea_form');

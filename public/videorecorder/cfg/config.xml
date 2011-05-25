@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+
+<!--general settings-->
+
+<license>16EFHFET563TT3B6DCED51BGT0D0GDC5D06T42A3</license>
+
+<mode>recorder</mode> <!--(available modes -- recorder, audio recorder, broadcaster, player)-->
+
+<server>rtmp://yourtakeon.com/oflaDemo</server>
+
+ <!--<filename>sttemanihdhxcsfxs</filename>(please remove this for multiple recording)-->
+
+<maxduration>60</maxduration>
+
+<preview>http://localhost/webflvrec/images/test.jpg</preview> <!--(only for player)-->
+
+<!--camera settings & not for playeer mode-->
+
+<width>320</width>
+
+<height>240</height>
+
+<fps>30</fps>
+
+<bandwidth>0</bandwidth>
+
+<quality>85</quality>
+
+<!--microphone settings & not for player mode-->
+
+<micrate>64</micrate>
+
+<loopback>false</loopback> <!--reroutes the audio input to the local speaker if set to true-->
+
+<!--server side files-->
+
+<imagecapture>http://localhost/yourtakeon/videorecorder/php/imagecapture.php</imagecapture> <!--(omit this for player)-->
+
+<savestream>http://localhost/yourtakeon/videorecorder/php/save.php</savestream> <!--(omit this for player & broadcaster)-->
+
+</config>

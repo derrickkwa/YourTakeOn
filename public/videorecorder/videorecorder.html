@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>Recorder</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<script type="text/javascript" src="js/swfobject.js"></script>    
+                 <script type="text/javascript">
+
+                 function getFlashMovie(movieName)
+                 {
+                  var isIE = navigator.appName.indexOf("Microsoft") != -1;
+                  return (isIE) ? window[movieName] : document[movieName];
+                 }  
+   
+                 var params = { allowScriptAccess: "always", allowFullScreen: "true", flashvars:""};
+                 var atts = { id: "recorder" };
+                 swfobject.embedSWF("recorder.swf", "recorder", "320", "295", "8", null, null, params, atts);
+
+                 function onRecordPublished(obj)
+                 {
+                  alert(obj.filename);
+                  alert(obj.duration);
+                 }
+
+                 </script>
+         
+        </head>
+        
+	<body>
+     <div id="recorder">
+      You need Flash player 8+ and JavaScript enabled to view this video.
+     </div>
+     <a href="javascript:void(0)" onclick="javascript:getFlashMovie('recorder').getVersion();">getVersion</a>
+</html>
+
+
+
+

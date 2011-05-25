@@ -12,11 +12,12 @@
         	parent::__construct();
     	}
       
-      	function addIdea($posttitle, $postblurb, $userID)
+      	function addIdea($posttitle, $postblurb, $userID, $vid_url)
 		{
 			$this->posttitle = $posttitle;
 			$this->postblurb = $postblurb;
 			$this->userID = $userID;
+			$this->vid_url = $vid_url;
 			
 			$this->db->insert('posts', $this);
 			
