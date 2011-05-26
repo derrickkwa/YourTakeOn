@@ -92,8 +92,8 @@ class user extends CI_Controller {
 				array_push($data['error'], "Passwords do not match.");
 				$success = 0;
 			}
-			
-			if (preg_match('/^[^@\s]+@([-a-z0-9]+\.)+[a-z]{2,}$/i',$email)==false){
+			$this->load->helper('email');
+			if (valid_email($email)==false){
 				array_push($data['error'], "Email address is not valid.");
 				$success = 0;
 			} 
@@ -140,10 +140,13 @@ class user extends CI_Controller {
 			
 				array_push($data['error'], "Name cannot be empty");
 			}
+			$this->load->helper('email');
 			if($user->email==''){
 				array_push($data['error'], "Email cannot be empty");
 			}
-		
+			if(valid_email($user->email)==false){
+				array_push($data['error'], "Email is not valid.");
+			}
 			if(count($data['error'])==0){
 				$data['success'] = "Account details updated successfully.";
 				$this->Users->updateUser($user);
@@ -159,5 +162,6 @@ class user extends CI_Controller {
 		$this->load->view('user_sidebar',$sidebardata);
 		
 	}
+	
 }
 ?>
