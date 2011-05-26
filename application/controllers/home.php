@@ -34,7 +34,7 @@ class Home extends CI_Controller {
 			$this->session->set_userdata('last_post',false);
 		}
 		else{
-			echo "No more unrated ideas.";
+			$this->load->view('homepage_nonew');
 		}	
 	}
 }

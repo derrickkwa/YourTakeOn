@@ -106,5 +106,13 @@
 			$this->db->update('posts', array('rating'=>$avgrating->rating, 'totalvotes'=>$totalvotes));
 			return $avgrating;
 		}
+		
+		function getTop($count){
+			$this->db->order_by("rating", "desc");
+			$query = $this->db->get('posts', $count);
+			$topideas = $query->result();
+			
+			return $topideas;
+		}
     }  
 ?>

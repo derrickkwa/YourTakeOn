@@ -35,7 +35,7 @@
 		<h1>YourTakeOn</h1>
 		<ul id="nav">
 			<li><?php echo anchor('/home', 'Home'); ?></li>
-			<li><?php echo anchor('/ideas/top','Top Ideas'); ?></li>
+			<li><?php echo anchor('/idea/top','Top Ideas'); ?></li>
 			<?php
 				if($this->sessauth->checkLoggedIn()!=false){
 					echo '<li>'.anchor('/idea/add', 'Post New Idea').'</li>';

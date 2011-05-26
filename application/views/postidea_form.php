@@ -63,7 +63,7 @@
        							$(".crumbs_result").html('Result: <a href="' + data.short + '">Link</a>').slideDown();
     						}
 						}, "json");
-	              	//$('#postidea').submit();
+	              	$('#postidea').submit();
 	                 // alert(obj.duration);
                  }
 

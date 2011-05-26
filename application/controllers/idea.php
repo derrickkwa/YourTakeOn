@@ -6,6 +6,15 @@ class idea extends CI_Controller {
 		redirect('/home');
 	}
 	
+	function top()
+	{
+		$this->load->view('header');
+		
+		$topideas['ideas'] = $this->Ideas->getTop(10);
+		
+		$this->load->view('top', $topideas);
+	}
+	
 	function add()
 	{
 		if($this->sessauth->checkLoggedIn()==false){
@@ -30,6 +39,14 @@ class idea extends CI_Controller {
 
 			}
 		}
+	}
+	
+	function view($postID)
+	{
+		$idea = $this->Ideas->getIdea($postID);
+		
+		$this->load->view('viewidea', $idea);
+		
 	}
 }
 ?>
