@@ -114,5 +114,10 @@
 			
 			return $topideas;
 		}
+		
+		function deleteIdea($postID, $userID){
+			//only delete if the idea belongs to logged in user
+			$this->db->delete('posts', array('postID'=>$postID,'userID'=>$userID));
+		}
     }  
 ?>

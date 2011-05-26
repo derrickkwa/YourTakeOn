@@ -43,10 +43,18 @@ class idea extends CI_Controller {
 	
 	function view($postID)
 	{
-		$idea = $this->Ideas->getIdea($postID);
+	
+		$data = $this->Ideas->getIdea($postID);
+		$data->prev_idea = false;
+		$this->load->view('header');
+		$this->load->view('homepage', $data);
 		
-		$this->load->view('viewidea', $idea);
-		
+	}
+	
+	function delete($postID)
+	{
+		$this->Ideas->deleteIdea($postID, $this->session->userdata('userID'));
+		redirect('/user');
 	}
 }
 ?>

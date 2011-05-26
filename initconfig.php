@@ -45,6 +45,7 @@ $sql = "CREATE TABLE `YourTakeOn`.`posts` (
 `postblurb` VARCHAR( 255 ) NOT NULL ,
 `rating` FLOAT NOT NULL ,
 `totalvotes` FLOAT NOT NULL ,
+`vid_url` VARCHAR( 255 ) NOT NULL ,
 `last_modified` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 )";
 

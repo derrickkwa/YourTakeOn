@@ -32,7 +32,7 @@
 				}
 			?>
 		</div>
-		<h1>YourTakeOn</h1>
+		<h1><a href="<?php echo base_url(); ?>">YourTakeOn</a></h1>
 		<ul id="nav">
 			<li><?php echo anchor('/home', 'Home'); ?></li>
 			<li><?php echo anchor('/idea/top','Top Ideas'); ?></li>

@@ -20,13 +20,15 @@
 				<?php $url = 'http://yourtakeon.com/vids/'.$vid_url.'.flv'; ?>
 				<script type="text/javascript" src="<?php echo base_url(); ?>/public/flowplayer/flowplayer-3.2.6.min.js"></script>
 				<!-- this A tag is where your Flowplayer will be placed. it can be anywhere -->
-					<a href="<?php echo $url; ?>" style="display:block;width:550px; height: 350px;" id="player"> </a> 
+					<div href="<?php echo $url; ?>" id="player" style="display:block;width:550px; height: 350px; background-image: url('http://yourtakeon.com/vids/thumbnails/<?php echo $vid_url; ?>.jpg');">
+						<img src="<?php echo base_url(); ?>public/flowplayer/play_large.png"  style="margin-top: 125px;margin-left: 225px;"/>
+					</div> 
 	
 				<!-- this will install flowplayer inside previous A- tag. -->
 				<script>
 					flowplayer("player", {
 					
-						src: "<?php echo base_url(); ?>/public/flowplayer/flowplayer-3.2.7.swf", 
+						src: "<?php echo base_url(); ?>public/flowplayer/flowplayer-3.2.7.swf", 
 						
 						wmode: "transparent"
 					},{
@@ -34,7 +36,7 @@
 					// change the default controlbar to modern
 						plugins: {
 							controls: {
-							url: '<?php echo base_url(); ?>/public/flowplayer/flowplayer.controls-tube-3.2.5.swf',
+							url: '<?php echo base_url(); ?>public/flowplayer/flowplayer.controls-tube-3.2.5.swf',
 			
 							/*buttonColor: 'rgba(0, 0, 0, 0.9)',
 							buttonOverColor: '#000000',
@@ -50,9 +52,6 @@
 						//	durationColor: '#0000ff'
 							}
 						},
-						clip: {
-    						autoPlay: false
-   						 }
 	
 					});
 					

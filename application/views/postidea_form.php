@@ -54,16 +54,19 @@
     						"vid_url": obj.filename
  
 						}, function (data) {
- 
+ 								
+	       
     						console.log(data);
     						if (data.error) {
         						alert('Error: ' + data.error);
     						} else {
  
-       							$(".crumbs_result").html('Result: <a href="' + data.short + '">Link</a>').slideDown();
+       							
     						}
 						}, "json");
-	              	$('#postidea').submit();
+					//$.ajaxComplete(function(){
+						$('#postidea').submit();
+					//});
 	                 // alert(obj.duration);
                  }
 
