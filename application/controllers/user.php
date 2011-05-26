@@ -9,13 +9,13 @@ class user extends CI_Controller {
 			$this->load->view('header');
 			$data = $this->session->userdata;
 			$user = $this->Users->getUserbyID($this->session->userdata('userID'));
-			$data['ideas'] = $this->Ideas->getUserIdeas($this->session->userdata('userID'));
+			$data['posts'] = $this->Posts->getUserPosts($this->session->userdata('userID'));
 			
 			$this->load->view('dashboard',$data);
 			
 			$sidebardata['avgrating'] = $this->Users->getAverageRating($this->session->userdata('userID'));
-			$sidebardata['ideas'] = $data['ideas'];
-			$sidebardata['totalideas'] = count($sidebardata['ideas']);
+			$sidebardata['posts'] = $data['posts'];
+			$sidebardata['totalposts'] = count($sidebardata['posts']);
 			$this->load->view('user_sidebar', $sidebardata);
 		}
 	}

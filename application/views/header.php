@@ -9,7 +9,7 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>public/css/easy.css" media="screen" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>public/css/easyprint.css" media="print" />
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>public/js/jquery.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>public/js/easy.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>public/js/main.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>public/js/cufon.js"></script>
@@ -37,10 +37,10 @@
 		<h1><a href="<?php echo base_url(); ?>">YourTakeOn</a></h1>
 		<ul id="nav">
 			<li><?php echo anchor('/home', 'Home'); ?></li>
-			<li><?php echo anchor('/idea/top','Top Ideas'); ?></li>
+			<li><?php echo anchor('/post/top','Top'); ?></li>
 			<?php
 				if($this->sessauth->checkLoggedIn()!=false){
-					echo '<li>'.anchor('/idea/add', 'Post New Idea').'</li>';
+					echo '<li>'.anchor('/post/add', 'New Post').'</li>';
 				}
 			?>
 		</ul>

@@ -9,7 +9,7 @@ class vote extends CI_Controller {
 			$postID = $this->input->post('postID');
 			$userID = $this->session->userdata('userID');
 		
-			$this->Votes->rateIdea($rating,$postID,$userID);
+			$this->Votes->ratePost($rating,$postID,$userID);
 		
 			$this->session->set_userdata('last_post', $postID);
 		}

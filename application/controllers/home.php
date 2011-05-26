@@ -22,11 +22,11 @@ class Home extends CI_Controller {
 		$this->load->view('header');
 		
 		
-		$randomidea = $this->Ideas->getRandomIdea();
-		if ($randomidea != NULL){
-			$data = $randomidea;
-			$previdea = $this->Ideas->getIdea($this->session->userdata('last_post'));
-			$data->prev_idea = $previdea;
+		$randompost = $this->Posts->getRandomPost();
+		if ($randompost != NULL){
+			$data = $randompost;
+			$prevpost = $this->Posts->getPost($this->session->userdata('last_post'));
+			$data->prev_post = $prevpost;
 			
 			$this->load->view('homepage',$data);
 			

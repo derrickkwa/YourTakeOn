@@ -9,7 +9,7 @@
         	parent::__construct();
     	}
       
-      	function rateIdea($rating, $postID, $userID){
+      	function ratePost($rating, $postID, $userID){
       		$this->rating = $rating;
 			$this->postID = $postID;
 			$this->userID = $userID;

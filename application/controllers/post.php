@@ -1,5 +1,5 @@
 <?php
-class idea extends CI_Controller {
+class post extends CI_Controller {
 		
 	function index()
 	{
@@ -10,7 +10,7 @@ class idea extends CI_Controller {
 	{
 		$this->load->view('header');
 		
-		$topideas['ideas'] = $this->Ideas->getTop(10);
+		$topideas['posts'] = $this->Ideas->getTop(10, 'ideas');
 		
 		$this->load->view('top', $topideas);
 	}
@@ -24,17 +24,18 @@ class idea extends CI_Controller {
 			$blurb = $this->input->post('blurb');
 			$userID = $this->session->userdata('userID');
 			$vid_url = $this->input->post('vid_url');
+			$vid_type = $this->input->post('type');
 		
-			if($title != '' && $blurb !='' && $userID !=false){
-				$idea = $this->Ideas->addIdea($title,$blurb, $userID, $vid_url);
+			if($title != '' && $blurb !='' && $userID !=false&&$vid_type!=''){
+				$idea = $this->Ideas->addIdea($title,$blurb, $userID, $vid_url,$vid_type);
 				redirect('/user');	
 			} else {
 				$this->load->view('header');
 				$this->load->view('postidea_form');
 			
 				$sidebardata['avgrating'] = $this->Users->getAverageRating($this->session->userdata('userID'));
-				$sidebardata['ideas'] = $this->Ideas->getUserIdeas($this->session->userdata('userID'));
-				$sidebardata['totalideas'] = count($sidebardata['ideas']);
+				$sidebardata['posts'] = $this->Posts->getUserPosts($this->session->userdata('userID'));
+				$sidebardata['totalposts'] = count($sidebardata['posts']);
 				$this->load->view('user_sidebar', $sidebardata);
 
 			}

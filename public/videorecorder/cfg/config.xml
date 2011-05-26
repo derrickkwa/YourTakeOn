@@ -12,7 +12,7 @@
 
  <!--<filename>sttemanihdhxcsfxs</filename>(please remove this for multiple recording)-->
 
-<maxduration>60</maxduration>
+<maxduration>600</maxduration>
 
 <preview>http://localhost/public/videorecorder/images/test.jpg</preview> <!--(only for player)-->
 

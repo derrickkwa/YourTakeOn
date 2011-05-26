@@ -68,14 +68,14 @@
 		</div>
 	</div>
 	<div class="secondary">
-		<?php if($prev_idea!=false){ ?>
+		<?php if($prev_post!=false){ ?>
 			<div style="margin-top: 13em; padding: 10px; background: #0088aa;">
 				You just rated:
-				<h2><?php echo $prev_idea->posttitle; ?></h2>
-				<p><?php echo $prev_idea->postblurb; ?></p>
+				<h2><?php echo $prev_post->posttitle; ?></h2>
+				<p><?php echo $prev_post->postblurb; ?></p>
 				Average Rating:
-				<h2><?php echo round($prev_idea->rating,2); ?></h2>
-				based of <?php echo $prev_idea->totalvotes; ?> votes
+				<h2><?php echo round($prev_post->rating,2); ?></h2>
+				based of <?php echo $prev_post->totalvotes; ?> votes
 			</div>
 		<?php } ?>
 	</div>

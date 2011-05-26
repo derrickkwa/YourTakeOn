@@ -1,5 +1,5 @@
 <?php  
-    class Ideas extends CI_Model {
+    class Posts extends CI_Model {
     	var $postID = '';  
     	var $userID = '';
 		var $posttitle= '';
@@ -12,19 +12,20 @@
         	parent::__construct();
     	}
       
-      	function addIdea($posttitle, $postblurb, $userID, $vid_url)
+      	function addPost($posttitle, $postblurb, $userID, $vid_url, $type)
 		{
 			$this->posttitle = $posttitle;
 			$this->postblurb = $postblurb;
 			$this->userID = $userID;
 			$this->vid_url = $vid_url;
+			$this->type = $type;
 			
 			$this->db->insert('posts', $this);
 			
 			return $this;
 		}
 		
-		function getIdea($postID){
+		function getPost($postID){
 			
 			$query = $this->db->get_where('posts', array('postID' => $postID));
 			$idea = $query->row();
@@ -32,7 +33,7 @@
 			
 		}
 		
-		function getUserIdeas($userID)
+		function getUserPosts($userID)
 		{
 			$query = $this->db->get_where('posts', array('userID' => $userID));
 			
@@ -43,7 +44,7 @@
 		}
 		
 		// Gets a random idea from the database, subject to some conditions
-		function getRandomIdea()
+		function getRandomPost()
 		{
 			$userID = $this->session->userdata('userID');
 				
@@ -115,7 +116,7 @@
 			return $topideas;
 		}
 		
-		function deleteIdea($postID, $userID){
+		function deletePost($postID, $userID){
 			//only delete if the idea belongs to logged in user
 			$this->db->delete('posts', array('postID'=>$postID,'userID'=>$userID));
 		}

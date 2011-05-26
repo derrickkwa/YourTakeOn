@@ -14,7 +14,7 @@
 		'maxlength'	=> '255'
 	);
 	
-	echo form_open('/idea/add', array('id'=>'postidea','name'=>'postidea'));
+	echo form_open('/post/add', array('id'=>'postidea','name'=>'postidea'));
 	echo '<div>';
     echo form_label('Title:','title');
     echo form_input($titleinput);
@@ -23,9 +23,15 @@
 	echo form_input($blurb);
 	echo '</div>';
 ?>
+<div>
+	<label for="type">Post Type</label>
+	<input type="radio" name="type" id="type" value="pitch"> Pitch &nbsp;
+	<input type="radio" name="type" id="type" value="music"> Music &nbsp;
+	<input type="radio" name="type" id="type" value="other"> Others &nbsp;
+</div>
 <input type="hidden" id="vid_url" name="vid_url" />
 <div>
-	Record short pitch (max 1 minute):
+	Record:<br />
 	
 	<script type="text/javascript" src="<?php echo base_url(); ?>public/js/xajax.js"></script><!--REMOVE WHEN MIGRATED TO PRODUCTION SERVER-->
 	
