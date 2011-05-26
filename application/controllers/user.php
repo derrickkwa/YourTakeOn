@@ -94,5 +94,45 @@ class user extends CI_Controller {
 			$this->load->view('signup_form');
 		}
 	}
+	
+	function settings()
+	{
+		$user = $this->Users->getUserbyID($this->session->userdata('userID'));
+		$data['error'] = Array();
+		$data['success'] = '';
+		if($this->input->post('password')!=''){
+			if($this->input->post('password')==$this->input->post('confirmpassword')){
+				$userdata->password = md5($this->input->post('password'));
+			} else {
+				array_push($data['error'], "Passwords don't match");
+			}
+		}
+		if($this->input->post('submitted')==1){
+			$user->firstname = $this->input->post('firstname');
+			$user->lastname = $this->input->post('lastname');
+			$user->email = $this->input->post('email');
+			if($user->firstname==''||$user->lastname==''){
+			
+				array_push($data['error'], "Name cannot be empty");
+			}
+			if($user->email==''){
+				array_push($data['error'], "Email cannot be empty");
+			}
+		
+			if(count($data['error'])==0){
+				$data['success'] = "Account details updated successfully.";
+				$this->Users->updateUser($user);
+			}
+		}
+		$data['user'] = $user;
+
+		$this->load->view('header');
+		$this->load->view('settings',$data);
+		$sidebardata['avgrating'] = $this->Users->getAverageRating($this->session->userdata('userID'));
+		$sidebardata['ideas'] = $this->Ideas->getUserIdeas($this->session->userdata('userID'));
+		$sidebardata['totalideas'] = count($sidebardata['ideas']);
+		$this->load->view('user_sidebar',$sidebardata);
+		
+	}
 }
 ?>

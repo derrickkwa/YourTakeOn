@@ -29,6 +29,12 @@
 			return $user;
 			
 		}
+		function updateUser($user)
+		{
+			$this->db->where('userID', $this->session->userdata('userID'));
+			$this->db->update('users', $user);
+		
+		}
 		
 		function getUser($email, $password)
 		{

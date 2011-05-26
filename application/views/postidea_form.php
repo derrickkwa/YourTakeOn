@@ -59,7 +59,7 @@
 						}, "json");
 				
 	                 // alert(obj.duration);
-	                 	alert('meep');
+	                 	
     					$('#postidea').submit();
                  }
 

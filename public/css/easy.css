@@ -151,8 +151,8 @@ please read http://easyframework.com/documentation.php
 		}
 		
 	.note, .success, .error{display:block;}
-	.error{color:black; width: 100%; background: #900; padding: 2px;}
-	.success{color:#060;}
+	.error{color:black; width: 100%; background: #900; padding: 2px; margin: 3px 0;}
+	.success{color:black; width: 100%; background: #060; padding: 2px; margin: 3px 0;}
 	.note{font-weight:bold;}
 	.notvalid{border:1px solid #900 !important;}
 

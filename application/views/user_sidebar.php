@@ -12,4 +12,5 @@
 	</table>
 	
 	</p>
+	<?php echo anchor('/user','Go to Dashboard'); ?>
 </div>
