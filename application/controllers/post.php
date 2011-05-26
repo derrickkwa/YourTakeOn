@@ -10,9 +10,12 @@ class post extends CI_Controller {
 	{
 		$this->load->view('header');
 		
-		$topideas['posts'] = $this->Ideas->getTop(10, 'ideas');
+		$topposts['ideas'] = $this->Posts->getTop(10, 'idea');
+		$topposts['songs'] = $this->Posts->getTop(10, 'song');
+		$topposts['others'] = $this->Posts->getTop(10, 'misc');
+		$topposts['all'] = $this->Posts->getTop(10, 'all');
 		
-		$this->load->view('top', $topideas);
+		$this->load->view('top', $topposts);
 	}
 	
 	function add()

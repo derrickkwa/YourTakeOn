@@ -357,3 +357,9 @@ please read http://easyframework.com/documentation.php
 	background: #555555;
 	color: #dddddd;
 }
+
+#filter .selected{
+	color: white;
+	text-decoration: none;
+	cursor: default;
+}

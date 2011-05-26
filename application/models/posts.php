@@ -108,9 +108,13 @@
 			return $avgrating;
 		}
 		
-		function getTop($count){
+		function getTop($count, $type){
 			$this->db->order_by("rating", "desc");
-			$query = $this->db->get('posts', $count);
+			if($type=='all'){
+				$query = $this->db->get('posts', $count);
+			} else {
+				$query = $this->db->get_where('posts', array('type'=>$type), $count);
+			}
 			$topideas = $query->result();
 			
 			return $topideas;

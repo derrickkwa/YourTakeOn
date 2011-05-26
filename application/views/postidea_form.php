@@ -25,9 +25,9 @@
 ?>
 <div>
 	<label for="type">Post Type</label>
-	<input type="radio" name="type" id="type" value="pitch"> Pitch &nbsp;
-	<input type="radio" name="type" id="type" value="music"> Music &nbsp;
-	<input type="radio" name="type" id="type" value="other"> Others &nbsp;
+	<input type="radio" name="type" id="type" value="idea"> Pitch &nbsp;
+	<input type="radio" name="type" id="type" value="song"> Music &nbsp;
+	<input type="radio" name="type" id="type" value="misc"> Others &nbsp;
 </div>
 <input type="hidden" id="vid_url" name="vid_url" />
 <div>
