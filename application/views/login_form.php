@@ -1,4 +1,6 @@
-<?php
+<?php if(isset($error)){
+	echo '<div class="error">'.$error.'</div>';
+	}
     $emailinput = array(
 		'name' 	=> 'email',
 		'id'       	=> 'email',
@@ -32,16 +34,17 @@
 	
 	
 	echo form_open('/user/login');
-	echo form_fieldset('login info');
-	echo '<div>';
-    echo form_label('email address:','email');
-    echo form_input($emailinput);
-	echo '</div>';
-	echo '<div>';
-	echo form_label('password:','password');
-	echo form_password($password);
-	echo '</div>';
 	?>
+	<fieldset>
+	<legend>Login</legend>
+	<div>
+	<label for="email">Email Address</label>
+	<input type="text" id="email" name="email" class="email field required" />
+	</div>
+	<div>
+		<label for="password">Password</label>
+		<input type="password" id="password" name="password" class="password field required" />
+	</div>
 	<div>
 	<input type="checkbox" id="keep_login" name="keep_login" value="1" checked="0" style="display: inline;">
 	<label for="keep_login" style="display: inline;">Keep me logged in</label>

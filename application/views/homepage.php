@@ -1,5 +1,4 @@
-<div class="content">
-	<div class="main">
+<div class="main">
 		<div>
 			<ul id="ratings">
 					<li class="first">1</li>

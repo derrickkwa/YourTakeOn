@@ -1,4 +1,3 @@
-<div class="content">
 <div class="main">
 <?php 
 	if($success!=''){

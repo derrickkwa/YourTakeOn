@@ -1,5 +1,4 @@
-<div class="content">
-	<div class="full">
+<div class="full">
 		<h2>Top 10 Ideas</h2>
 		<?php
 		foreach($ideas as $idea){
@@ -13,4 +12,3 @@
 		<?php }
 		?>
 	</div>
-</div>

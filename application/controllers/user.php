@@ -51,7 +51,10 @@ class user extends CI_Controller {
 				//$this->load->view('dashboard', $this->session->userdata);
 				redirect('/user');
 			} else {
-				$this->load->view('login_form');
+				$data['error']='Login failed. Try again.';
+				$data['email'] = $email;
+				$this->load->view('header');
+				$this->load->view('login_form',$data);
 			}
 		} else{
 			$this->load->view('login_form');
@@ -73,15 +76,36 @@ class user extends CI_Controller {
 		$password = $this->input->post('password');
 		$firstname = $this->input->post('firstname');
 		$lastname = $this->input->post('lastname');
+		$data['error'] = Array();
+		$data['email'] = '';
+		$data['firstname'] = '';
+		$data['lastname'] = '';
+		$success = 1;
 		
-		
-		// Checks for input password mismatch
-		if($password != $this->input->post('confirmpassword')){
-			echo "Passwords do not match.";
-			$this->load->view('signup_form');
-		
-		
-		} elseif($password != '' && $email != '' && $firstname != '' && $lastname != '') {
+		//first, check if it's a form being submitted
+		if($password != '' || $email != '' || $firstname != '' || $lastname != '') {
+			$data['email'] = $email;
+			$data['firstname'] = $firstname;
+			$data['lastname'] = $lastname;
+			
+			if($password != $this->input->post('confirmpassword')){
+				array_push($data['error'], "Passwords do not match.");
+				$success = 0;
+			}
+			
+			if (preg_match('/^[^@\s]+@([-a-z0-9]+\.)+[a-z]{2,}$/i',$email)==false){
+				array_push($data['error'], "Email address is not valid.");
+				$success = 0;
+			} 
+			
+			if($email == ''){
+				array_push($data['error'], "Email address cannot be empty.");
+			}
+			if($firstname == '' || $lastname == ''){
+				array_push($data['error'], "Name cannot be empty.");
+			}
+			
+			if($success==1) {
 				$password = md5($password);
 		
 				$user = $this->Users->AddUser($email, $password, $firstname, $lastname);
@@ -89,10 +113,11 @@ class user extends CI_Controller {
 				$this->sessauth->setSession($user);
 				//$this->load->view('dashboard', $this->session->userdata);
 				redirect('/user');
+			}
+
+		} 
 		
-		} else {
-			$this->load->view('signup_form');
-		}
+		$this->load->view('signup_form', $data);
 	}
 	
 	function settings()
