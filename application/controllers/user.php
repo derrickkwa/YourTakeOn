@@ -53,10 +53,12 @@ class user extends CI_Controller {
 			} else {
 				$data['error']='Login failed. Try again.';
 				$data['email'] = $email;
-				$this->load->view('header');
+				$headerdata['hidenav'] = true;
+				$this->load->view('header',$headerdata);
 				$this->load->view('login_form',$data);
 			}
 		} else{
+			$this->load->view('header');
 			$this->load->view('login_form');
 		}
 	}
@@ -127,7 +129,7 @@ class user extends CI_Controller {
 		$data['success'] = '';
 		if($this->input->post('password')!=''){
 			if($this->input->post('password')==$this->input->post('confirmpassword')){
-				$userdata->password = md5($this->input->post('password'));
+				$user->password = md5($this->input->post('password'));
 			} else {
 				array_push($data['error'], "Passwords don't match");
 			}
