@@ -56,18 +56,11 @@
 						}, function (data) {
  								
 	       
-    						console.log(data);
-    						if (data.error) {
-        						alert('Error: ' + data.error);
-    						} else {
- 
-       							
-    						}
 						}, "json");
-					//$.ajaxComplete(function(){
-						$('#postidea').submit();
-					//});
+				
 	                 // alert(obj.duration);
+	                 	alert('meep');
+    					$('#postidea').submit();
                  }
 
                  </script>
