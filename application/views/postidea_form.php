@@ -69,8 +69,6 @@
 
                  </script>
          
-        </head>
-        
      <div id="recorder">
       You need Flash player 8+ and JavaScript enabled to view this video.
      </div>
@@ -79,5 +77,4 @@
      //echo form_button($postidea);
 	echo form_close();
 ?>
-</div>
 </div>

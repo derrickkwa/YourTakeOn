@@ -8,9 +8,15 @@ class user extends CI_Controller {
 		} else {
 			$this->load->view('header');
 			$data = $this->session->userdata;
+			$user = $this->Users->getUserbyID($this->session->userdata('userID'));
 			$data['ideas'] = $this->Ideas->getUserIdeas($this->session->userdata('userID'));
 			
 			$this->load->view('dashboard',$data);
+			
+			$sidebardata['avgrating'] = $this->Users->getAverageRating($this->session->userdata('userID'));
+			$sidebardata['ideas'] = $data['ideas'];
+			$sidebardata['totalideas'] = count($sidebardata['ideas']);
+			$this->load->view('user_sidebar', $sidebardata);
 		}
 	}
 	

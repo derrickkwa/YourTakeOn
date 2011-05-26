@@ -114,9 +114,9 @@ please read http://easyframework.com/documentation.php
 		font-style:italic;
 		}	
 	dt{font-weight:bold;}
-	th, td{padding:.5em 1em;line-height:1.5em;}		
+	th, td{padding:.5em 0em;line-height:1.5em;}		
 	th{background:#eee;}
-	td{border-bottom:1px solid #eee;}
+	/*td{border-bottom:1px solid #eee;}*/
 	caption{font-style:italic;color:#777;margin:.5em 0;}	
 	fieldset{
 		border:1px solid #ccc;
@@ -187,7 +187,7 @@ please read http://easyframework.com/documentation.php
 		}
 	.main{width:600px;}
 	.full{width:100%;}
-	.secondary{width:280px;margin-left:40px;}
+	.secondary{width:250px;margin-left:30px;}
 	.tertiary{}
 	.quaternary{}
 	

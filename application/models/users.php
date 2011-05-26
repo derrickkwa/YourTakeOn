@@ -21,6 +21,14 @@
 			$this->userID = mysql_insert_id();
 			return $this;
 		}
+		function getUserbyID($userID){
+			
+			$query = $this->db->get_where('users', array('userID' => $userID));
+			$user = $query->row();
+			
+			return $user;
+			
+		}
 		
 		function getUser($email, $password)
 		{
@@ -43,6 +51,15 @@
 				return false;
 			}
 			
+		}
+		
+		function getAverageRating($userID){
+			$this->db->select_avg('rating');
+			$query= $this->db->get_where('posts',array('userID'=>$userID));
+			
+			$avgrating = $query->first_row()->rating;
+			
+			return $avgrating;
 		}
     }  
 ?>

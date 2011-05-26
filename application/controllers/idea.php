@@ -22,6 +22,12 @@ class idea extends CI_Controller {
 			} else {
 				$this->load->view('header');
 				$this->load->view('postidea_form');
+			
+				$sidebardata['avgrating'] = $this->Users->getAverageRating($this->session->userdata('userID'));
+				$sidebardata['ideas'] = $this->Ideas->getUserIdeas($this->session->userdata('userID'));
+				$sidebardata['totalideas'] = count($sidebardata['ideas']);
+				$this->load->view('user_sidebar', $sidebardata);
+
 			}
 		}
 	}
