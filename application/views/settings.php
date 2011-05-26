@@ -31,15 +31,15 @@ $(document).ready(function(){
 	<legend>User Info</legend>
 	<div>
 		<label for="email">Email Address</label>
-		<input id="email" name="email" type="text" class="email field" value="<?php echo $user->email; ?>" />
+		<input id="email" name="email" type="text" class="email field required" value="<?php echo $user->email; ?>" />
 	</div>
 	<div>
 		<label for="firstname">First Name</label>
-		<input id="firstname" name="firstname" type="text" class="field" value="<?php echo $user->firstname; ?>" />
+		<input id="firstname" name="firstname" type="text" class="field required" value="<?php echo $user->firstname; ?>" />
 	</div>
 	<div>
 		<label for="lastname">Last Name</label>
-		<input id="lastname" name="lastname" type="text" class="field" value="<?php echo $user->lastname; ?>" />
+		<input id="lastname" name="lastname" type="text" class="field required" value="<?php echo $user->lastname; ?>" />
 	</div>
 </fieldset>
 <input type="hidden" id="submitted" name="submitted" value="0">
