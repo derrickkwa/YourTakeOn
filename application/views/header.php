@@ -25,8 +25,10 @@
 	<div id="header">
 		<div class="right" style="margin-top: 53px; font-size:1.1em;">
 			<?php
-				if($this->sessauth->checkLoggedIn()==false){ 
+				if($this->sessauth->checkLoggedIn()==false){
+					if(isset($hidenav)){ 
 					$this->load->view('gen_nav.php');
+					}
 				} else {
 					$this->load->view('usernav.php');
 				}
