@@ -13,10 +13,7 @@ class user extends CI_Controller {
 			
 			$this->load->view('dashboard',$data);
 			
-			$sidebardata['avgrating'] = $this->Users->getAverageRating($this->session->userdata('userID'));
-			$sidebardata['posts'] = $data['posts'];
-			$sidebardata['totalposts'] = count($sidebardata['posts']);
-			$this->load->view('user_sidebar', $sidebardata);
+			$this->globalfuncs->displaysidebar();
 		}
 	}
 	
@@ -58,7 +55,8 @@ class user extends CI_Controller {
 				$this->load->view('login_form',$data);
 			}
 		} else{
-			$this->load->view('header');
+			$headerdata['hidenav'] = true;
+			$this->load->view('header', $headerdata);
 			$this->load->view('login_form');
 		}
 	}
@@ -158,11 +156,8 @@ class user extends CI_Controller {
 
 		$this->load->view('header');
 		$this->load->view('settings',$data);
-		$sidebardata['avgrating'] = $this->Users->getAverageRating($this->session->userdata('userID'));
-		$sidebardata['ideas'] = $this->Ideas->getUserIdeas($this->session->userdata('userID'));
-		$sidebardata['totalideas'] = count($sidebardata['ideas']);
-		$this->load->view('user_sidebar',$sidebardata);
 		
+		$this->globalfuncs->displaysidebar();
 	}
 	
 }

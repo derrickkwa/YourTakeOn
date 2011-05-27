@@ -1,4 +1,14 @@
+<?php
+
+	if($type=='misc'){
+		$type_text = 'video';
+	} else {
+		$type_text = $type;
+	}
+
+?>
 <div class="main">
+<p class="note"><em>Give your take on this <?php echo $type_text; ?></em></p>
 		<div>
 			<ul id="ratings">
 					<li class="first">1</li>

@@ -38,11 +38,7 @@
 		<ul id="nav">
 			<li><?php echo anchor('/home', 'Home'); ?></li>
 			<li><?php echo anchor('/post/top','Top'); ?></li>
-			<?php
-				if($this->sessauth->checkLoggedIn()!=false){
-					echo '<li>'.anchor('/post/add', 'New Post').'</li>';
-				}
-			?>
+			<li><?php echo anchor('/post/add', 'New Post'); ?></li>
 		</ul>
 		
 		

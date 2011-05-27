@@ -21,7 +21,7 @@ class post extends CI_Controller {
 	function add()
 	{
 		if($this->sessauth->checkLoggedIn()==false){
-			redirect('/home');
+			redirect('/user/login');
 		} else {
 			$title = $this->input->post('title');
 			$blurb = $this->input->post('blurb');
@@ -36,11 +36,7 @@ class post extends CI_Controller {
 				$this->load->view('header');
 				$this->load->view('postidea_form');
 			
-				$sidebardata['avgrating'] = $this->Users->getAverageRating($this->session->userdata('userID'));
-				$sidebardata['posts'] = $this->Posts->getUserPosts($this->session->userdata('userID'));
-				$sidebardata['totalposts'] = count($sidebardata['posts']);
-				$this->load->view('user_sidebar', $sidebardata);
-
+				$this->globalfuncs->displaysidebar();
 			}
 		}
 	}
