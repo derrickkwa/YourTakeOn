@@ -30,7 +30,7 @@ class post extends CI_Controller {
 			$vid_type = $this->input->post('type');
 		
 			if($title != '' && $blurb !='' && $userID !=false&&$vid_type!=''){
-				$idea = $this->Ideas->addIdea($title,$blurb, $userID, $vid_url,$vid_type);
+				$idea = $this->Posts->addPost($title,$blurb, $userID, $vid_url,$vid_type);
 				redirect('/user');	
 			} else {
 				$this->load->view('header');
