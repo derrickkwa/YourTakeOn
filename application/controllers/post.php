@@ -44,8 +44,8 @@ class post extends CI_Controller {
 	function view($postID)
 	{
 	
-		$data = $this->Ideas->getIdea($postID);
-		$data->prev_idea = false;
+		$data = $this->Posts->getPost($postID);
+		$data->prev_post = false;
 		$this->load->view('header');
 		$this->load->view('homepage', $data);
 		
@@ -53,7 +53,7 @@ class post extends CI_Controller {
 	
 	function delete($postID)
 	{
-		$this->Ideas->deleteIdea($postID, $this->session->userdata('userID'));
+		$this->Posts->deletePost($postID, $this->session->userdata('userID'));
 		redirect('/user');
 	}
 }
