@@ -7,7 +7,7 @@ if (!$con)
 
 mysql_select_db("YourTakeOn", $con);
  // add rating row to posts table
-$sql = "ALTER TABLE `posts` ADD `type` VARCHAR(5) NOT NULL";
+$sql = "ALTER TABLE `posts` ADD `type` VARCHAR(5 is) NOT NULL";
 
 // Execute query
 if (mysql_query($sql,$con))
